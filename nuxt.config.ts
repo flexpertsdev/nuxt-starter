@@ -1,18 +1,16 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/content',
-  ],
-   content: {
+  modules: ['@nuxt/content'],
+  content: {
     preview: {
       api: 'https://api.nuxt.studio'
     }
   },
-  devtools: { enabled: true },
-  future: {
-    compatibilityVersion: 4,
-  },
-  compatibilityDate: '2024-04-03',
+  // Add this for GitHub integration
+  runtimeConfig: {
+    public: {
+      content: {
+        previewToken: process.env.NUXT_CONTENT_PREVIEW_TOKEN
+      }
+    }
+  }
 })
-
-
